@@ -8,10 +8,14 @@
 import SafariServices
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, Downloadable {
+    func didReceiveData(data: Any) {
+        self.restaurants = (data as! [Restaurant])
+    }
+    
     private var sideMenuViewController: SideMenuViewController!
     private var sideMenuShadowView: UIView!
-    private var sideMenuRevealWidth: CGFloat = 260
+    private var sideMenuRevealWidth: CGFloat = 220
     private let paddingForRotation: CGFloat = 150
     private var isExpanded: Bool = false
     
@@ -19,10 +23,15 @@ class MainViewController: UIViewController {
     private var sideMenuTrailingConstraint: NSLayoutConstraint!
 
     private var revealSideMenuOnTop: Bool = true
+    
+    var restaurants: [Restaurant] = []  // load once
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.1294117647, blue: 0.2941176471, alpha: 1)
+        let model = RestaurantsModel()
+        model.delegate = self
+        model.downloadRestaurants(url: URLServices.restaurantsScript)
+        self.view.backgroundColor = #colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 1)
 
         // Shadow Background View
         self.sideMenuShadowView = UIView(frame: self.view.bounds)
@@ -127,25 +136,14 @@ extension MainViewController: SideMenuViewControllerDelegate {
             // Home
             self.showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
         case 1:
-            // Music
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "MusicNavID")
+            // Restaurants
+            self.showRestaurantsViewController(viewController: UINavigationController.self, storyboardId: "RestaurantsTableNavID")
         case 2:
-            // Movies
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "MoviesNavID")
+            // About
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "AboutNavID")
         case 3:
-            // Books
-            self.showViewController(viewController: BooksViewController.self, storyboardId: "BooksVCID")
-        case 4:
-            // Profile
-            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let profileModalVC = storyboard.instantiateViewController(withIdentifier: "ProfileModalID") as? ProfileViewController
-            present(profileModalVC!, animated: true, completion: nil)
-        case 5:
-            // Settings
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "SettingsNavID")
-        case 6:
             // Like us on facebook
-            let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/johncodeos")!)
+            let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com")!)
             present(safariVC, animated: true)
         default:
             break
@@ -164,9 +162,61 @@ extension MainViewController: SideMenuViewControllerDelegate {
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId) as! T
+
         vc.view.tag = 99
         view.insertSubview(vc.view, at: self.revealSideMenuOnTop ? 0 : 1)
         addChild(vc)
+        if !self.revealSideMenuOnTop {
+            if isExpanded {
+                vc.view.frame.origin.x = self.sideMenuRevealWidth
+            }
+            if self.sideMenuShadowView != nil {
+                vc.view.addSubview(self.sideMenuShadowView)
+            }
+        }
+        vc.didMove(toParent: self)
+    }
+    
+    func showRestaurantsViewController<T: UIViewController>(viewController: T.Type, storyboardId: String) -> () {
+        // Remove the previous View
+        for subview in view.subviews {
+            if subview.tag == 99 {
+                subview.removeFromSuperview()
+            }
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId) as! UINavigationController
+        let restaurantView = vc.viewControllers.first as! RestaurantTableViewController
+        restaurantView.restaurants = self.restaurants
+        vc.view.tag = 99
+        view.insertSubview(vc.view, at: self.revealSideMenuOnTop ? 0 : 1)
+        addChild(vc)
+        if !self.revealSideMenuOnTop {
+            if isExpanded {
+                vc.view.frame.origin.x = self.sideMenuRevealWidth
+            }
+            if self.sideMenuShadowView != nil {
+                vc.view.addSubview(self.sideMenuShadowView)
+            }
+        }
+        vc.didMove(toParent: self)
+    }
+    
+    func showRestaurantsViewControllerOld<T: UIViewController>(viewController: T.Type, storyboardId: String) -> () {
+        // Remove the previous View
+        for subview in view.subviews {
+            if subview.tag == 99 {
+                subview.removeFromSuperview()
+            }
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId) as! UINavigationController
+        // this get the embedded view
+        let restaurantView = vc.viewControllers.first as! RestaurantTableViewController
+        restaurantView.restaurants = self.restaurants
+        vc.view.tag = 99
+        view.insertSubview(vc.view, at: self.revealSideMenuOnTop ? 0 : 1)
+        addChild(restaurantView)
         if !self.revealSideMenuOnTop {
             if isExpanded {
                 vc.view.frame.origin.x = self.sideMenuRevealWidth

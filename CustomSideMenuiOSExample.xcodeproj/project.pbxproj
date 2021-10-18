@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C20E9E2225E1B79B001B1A11 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20E9E2125E1B79A001B1A11 /* SideMenuModel.swift */; };
+		7614C5A22717593A001CF887 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C5A12717593A001CF887 /* Restaurant.swift */; };
+		7614C5A427175972001CF887 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C5A327175972001CF887 /* Network.swift */; };
+		7614C5A6271759A7001CF887 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C5A5271759A7001CF887 /* RestaurantTableViewCell.swift */; };
+		7614C5A827176892001CF887 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C5A727176892001CF887 /* RestaurantTableViewController.swift */; };
 		C25EF4CE25D067D00086441F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4CD25D067D00086441F /* AppDelegate.swift */; };
 		C25EF4D025D067D00086441F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4CF25D067D00086441F /* SceneDelegate.swift */; };
 		C25EF4D225D067D00086441F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4D125D067D00086441F /* HomeViewController.swift */; };
@@ -18,15 +21,15 @@
 		C25EF4EA25D06B6A0086441F /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4E825D06B6A0086441F /* SideMenuCell.swift */; };
 		C25EF4EB25D06B6A0086441F /* SideMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25EF4E925D06B6A0086441F /* SideMenuCell.xib */; };
 		C25EF52C25D09AC30086441F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF52B25D09AC30086441F /* MainViewController.swift */; };
-		C2DE6A2F25D2CEA7002B885A /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE6A2E25D2CEA7002B885A /* MusicViewController.swift */; };
-		C2DE6A3225D2CEB2002B885A /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE6A3125D2CEB2002B885A /* MoviesViewController.swift */; };
-		C2DE6A3525D2CEBD002B885A /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE6A3425D2CEBD002B885A /* BooksViewController.swift */; };
-		C2DE6A3825D2CEC8002B885A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE6A3725D2CEC8002B885A /* ProfileViewController.swift */; };
-		C2DE6A3B25D2CED4002B885A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE6A3A25D2CED4002B885A /* SettingsViewController.swift */; };
+		C2DE6A2F25D2CEA7002B885A /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE6A2E25D2CEA7002B885A /* RestaurantViewController.swift */; };
+		C2DE6A3225D2CEB2002B885A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE6A3125D2CEB2002B885A /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C20E9E2125E1B79A001B1A11 /* SideMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
+		7614C5A12717593A001CF887 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		7614C5A327175972001CF887 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		7614C5A5271759A7001CF887 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		7614C5A727176892001CF887 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		C25EF4CA25D067D00086441F /* CustomSideMenuiOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSideMenuiOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25EF4CD25D067D00086441F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C25EF4CF25D067D00086441F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,11 +42,8 @@
 		C25EF4E825D06B6A0086441F /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		C25EF4E925D06B6A0086441F /* SideMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuCell.xib; sourceTree = "<group>"; };
 		C25EF52B25D09AC30086441F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		C2DE6A2E25D2CEA7002B885A /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
-		C2DE6A3125D2CEB2002B885A /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
-		C2DE6A3425D2CEBD002B885A /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
-		C2DE6A3725D2CEC8002B885A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		C2DE6A3A25D2CED4002B885A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C2DE6A2E25D2CEA7002B885A /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		C2DE6A3125D2CEB2002B885A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,15 +57,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7614C5A02717590D001CF887 /* RestaurantView */ = {
+			isa = PBXGroup;
+			children = (
+				7614C5A12717593A001CF887 /* Restaurant.swift */,
+				7614C5A5271759A7001CF887 /* RestaurantTableViewCell.swift */,
+				7614C5A727176892001CF887 /* RestaurantTableViewController.swift */,
+			);
+			path = RestaurantView;
+			sourceTree = "<group>";
+		};
 		C22DF82F25D1917200FEB621 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				C25EF4D125D067D00086441F /* HomeViewController.swift */,
-				C2DE6A2E25D2CEA7002B885A /* MusicViewController.swift */,
-				C2DE6A3125D2CEB2002B885A /* MoviesViewController.swift */,
-				C2DE6A3425D2CEBD002B885A /* BooksViewController.swift */,
-				C2DE6A3725D2CEC8002B885A /* ProfileViewController.swift */,
-				C2DE6A3A25D2CED4002B885A /* SettingsViewController.swift */,
+				C2DE6A2E25D2CEA7002B885A /* RestaurantViewController.swift */,
+				C2DE6A3125D2CEB2002B885A /* AboutViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -89,6 +96,7 @@
 		C25EF4CC25D067D00086441F /* CustomSideMenuiOSExample */ = {
 			isa = PBXGroup;
 			children = (
+				7614C5A02717590D001CF887 /* RestaurantView */,
 				C22DF82F25D1917200FEB621 /* Views */,
 				C25EF4E225D06A2D0086441F /* SideMenu */,
 				C25EF52B25D09AC30086441F /* MainViewController.swift */,
@@ -98,6 +106,7 @@
 				C25EF4CD25D067D00086441F /* AppDelegate.swift */,
 				C25EF4CF25D067D00086441F /* SceneDelegate.swift */,
 				C25EF4DB25D067D20086441F /* Info.plist */,
+				7614C5A327175972001CF887 /* Network.swift */,
 			);
 			path = CustomSideMenuiOSExample;
 			sourceTree = "<group>";
@@ -106,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				C25EF4ED25D06B740086441F /* Cell */,
-				C20E9E2125E1B79A001B1A11 /* SideMenuModel.swift */,
 				C25EF4E325D06A430086441F /* SideMenuViewController.swift */,
 			);
 			path = SideMenu;
@@ -192,18 +200,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7614C5A427175972001CF887 /* Network.swift in Sources */,
 				C25EF4E425D06A430086441F /* SideMenuViewController.swift in Sources */,
-				C2DE6A2F25D2CEA7002B885A /* MusicViewController.swift in Sources */,
-				C2DE6A3B25D2CED4002B885A /* SettingsViewController.swift in Sources */,
-				C2DE6A3825D2CEC8002B885A /* ProfileViewController.swift in Sources */,
+				7614C5A827176892001CF887 /* RestaurantTableViewController.swift in Sources */,
+				C2DE6A2F25D2CEA7002B885A /* RestaurantViewController.swift in Sources */,
+				7614C5A6271759A7001CF887 /* RestaurantTableViewCell.swift in Sources */,
 				C25EF52C25D09AC30086441F /* MainViewController.swift in Sources */,
 				C25EF4EA25D06B6A0086441F /* SideMenuCell.swift in Sources */,
 				C25EF4D225D067D00086441F /* HomeViewController.swift in Sources */,
 				C25EF4CE25D067D00086441F /* AppDelegate.swift in Sources */,
-				C20E9E2225E1B79B001B1A11 /* SideMenuModel.swift in Sources */,
 				C25EF4D025D067D00086441F /* SceneDelegate.swift in Sources */,
-				C2DE6A3225D2CEB2002B885A /* MoviesViewController.swift in Sources */,
-				C2DE6A3525D2CEBD002B885A /* BooksViewController.swift in Sources */,
+				C2DE6A3225D2CEB2002B885A /* AboutViewController.swift in Sources */,
+				7614C5A22717593A001CF887 /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

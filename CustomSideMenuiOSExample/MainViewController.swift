@@ -25,12 +25,22 @@ class MainViewController: UIViewController, Downloadable {
     private var revealSideMenuOnTop: Bool = true
     
     var restaurants: [Restaurant] = []  // load once
+    
+    // reading from local DB
+    var db: DBHelper = DBHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // download from local server
+        self.restaurants = db.readFromDatabase()
+        
+        /*
+        // dowload data from local server
         let model = RestaurantsModel()
         model.delegate = self
         model.downloadRestaurants(url: URLServices.restaurantsScript)
+        */
         self.view.backgroundColor = #colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 1)
 
         // Shadow Background View
@@ -41,6 +51,7 @@ class MainViewController: UIViewController, Downloadable {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TapGestureRecognizer))
         tapGestureRecognizer.numberOfTapsRequired = 1
         tapGestureRecognizer.delegate = self
+        tapGestureRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGestureRecognizer)
         if self.revealSideMenuOnTop {
             view.insertSubview(self.sideMenuShadowView, at: 1)
@@ -201,32 +212,6 @@ extension MainViewController: SideMenuViewControllerDelegate {
         }
         vc.didMove(toParent: self)
     }
-    
-    func showRestaurantsViewControllerOld<T: UIViewController>(viewController: T.Type, storyboardId: String) -> () {
-        // Remove the previous View
-        for subview in view.subviews {
-            if subview.tag == 99 {
-                subview.removeFromSuperview()
-            }
-        }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId) as! UINavigationController
-        // this get the embedded view
-        let restaurantView = vc.viewControllers.first as! RestaurantTableViewController
-        restaurantView.restaurants = self.restaurants
-        vc.view.tag = 99
-        view.insertSubview(vc.view, at: self.revealSideMenuOnTop ? 0 : 1)
-        addChild(restaurantView)
-        if !self.revealSideMenuOnTop {
-            if isExpanded {
-                vc.view.frame.origin.x = self.sideMenuRevealWidth
-            }
-            if self.sideMenuShadowView != nil {
-                vc.view.addSubview(self.sideMenuShadowView)
-            }
-        }
-        vc.didMove(toParent: self)
-    }
 }
 
 extension MainViewController: UIGestureRecognizerDelegate {
@@ -241,6 +226,7 @@ extension MainViewController: UIGestureRecognizerDelegate {
     // Close side menu when you tap on the shadow background view
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if (touch.view?.isDescendant(of: self.sideMenuViewController.view))! {
+            // why do we return false here?
             return false
         }
         return true

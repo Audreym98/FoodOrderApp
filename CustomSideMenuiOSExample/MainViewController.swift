@@ -33,8 +33,9 @@ class MainViewController: UIViewController, Downloadable {
         super.viewDidLoad()
         
         // download from local server
+        print("load")
         self.restaurants = db.readFromDatabase()
-        
+        print(self.restaurants)
         /*
         // dowload data from local server
         let model = RestaurantsModel()

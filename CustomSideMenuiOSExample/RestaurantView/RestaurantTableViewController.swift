@@ -9,9 +9,13 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
+    @IBAction func likeRestaurant(sender: UIButton) {
+        // update if resturant isFavorite and change heart color
+    }
     
     var restaurants: [Restaurant] = []
     var defaults = UserDefaults.standard
+    var selectedRowIndex: Int?
     
     // lazy: initial value cannot be retrieved until instance initialization
     lazy var dataSource = configureDataSource()
@@ -54,10 +58,10 @@ class RestaurantTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as! RestaurantTableViewCell
                 let restaurantName = self.restaurants[indexPath.row].name
                 cell.nameLabel.text = restaurantName
+                cell.priceLabel.text = self.restaurants[indexPath.row].price
+                cell.typeLabel.text = self.restaurants[indexPath.row].type
                 // what image to display
                 cell.thumbnailImageView.image = UIImage(named: self.restaurants[indexPath.row].imageString)
-                cell.locationLabel.text = self.restaurants[indexPath.row].location
-                cell.typeLabel.text = self.restaurants[indexPath.row].type
                 // determine if the restaurant in this cell has been liked
                 if (self.defaults.object(forKey: restaurantName) == nil) {
                     self.restaurants[indexPath.row].isFavorite = false
@@ -74,12 +78,10 @@ class RestaurantTableViewController: UITableViewController {
         return dataSource
     }
     
-    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath
     : IndexPath) {
-        print("HELLO") // this isn't working
+        self.selectedRowIndex = indexPath.row
         // Create an option menu as an actionsheet
-        print(indexPath.row)
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
         // sets menu location for iPad
         if let popoverController = optionMenu.popoverPresentationController {
@@ -124,20 +126,24 @@ class RestaurantTableViewController: UITableViewController {
             let favoriteAction  = UIAlertAction(title: "Mark as favorite", style: .default, handler: favoriteActionHandler)
             optionMenu.addAction(favoriteAction)
         }
-        
+        let detailActionHandler = {
+            (action:UIAlertAction!) -> Void in
+            self.performSegue(withIdentifier: "showRestaurantDetail", sender: self)
+        }
+        let detailAction  = UIAlertAction(title: "View more details", style: .default, handler: detailActionHandler)
+        optionMenu.addAction(detailAction)
         // Display the menu
         present(optionMenu, animated: true, completion: nil)
         // Deselect row
         tableView.deselectRow(at: indexPath, animated: false)
     }
-    */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRestaurantDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
+            if let indexPath = self.selectedRowIndex {
                 // recieve destination controller
                 let destinationController = segue.destination as! RestaurantDetailViewController
-                destinationController.restaurant = self.restaurants[indexPath.row]
+                destinationController.restaurant = self.restaurants[indexPath]
             }
         }
     }

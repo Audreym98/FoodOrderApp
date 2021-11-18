@@ -12,7 +12,7 @@ class RestaurantDetailViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var headerView: RestaurantDetailHeaderView!
     
-    var restaurant = Restaurant(name: "", imageString: "", location: "", type: "")
+    var restaurant = Restaurant(name: "", imageString: "", type: "", price: "", description: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()

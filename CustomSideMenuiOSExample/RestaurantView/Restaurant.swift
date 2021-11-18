@@ -10,16 +10,18 @@ import Foundation
 struct Restaurant: Hashable, Decodable {
     
     var name: String
-    var type: String
-    var location: String
     var imageString: String
+    var type: String
+    var price: String
+    var description: String
     var isFavorite: Bool?
     
-    init(name: String, imageString: String, location: String, type: String) {
+    init(name: String, imageString: String, type: String, price: String, description: String) {
         self.name = name
         self.imageString = imageString
-        self.location = location
         self.type = type
+        self.price = price
+        self.description = description
         self.isFavorite = false
     }
 }

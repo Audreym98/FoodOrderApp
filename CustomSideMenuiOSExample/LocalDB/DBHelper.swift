@@ -14,11 +14,12 @@ class DBHelper {
         db = openDatabase()
     }
     
-    let dbPath: String = "Restaurants.sqlite"
+    // let dbPath: String = "Restaurants.sqlite"
+    let dbPath: String = "FoodApp.sqlite"
     var db:OpaquePointer?
     
     func openDatabase() -> OpaquePointer? {
-        let fileURL_path = "/Users/audrey/Desktop/UM/Fa-21/Swift/CustomSideMenuiOSExample-main/CustomSideMenuiOSExample/LocalDB/Restaurants.sqlite"
+        let fileURL_path = "/Users/audrey/Desktop/UM/Fa-21/Swift/CustomSideMenuiOSExample-main/CustomSideMenuiOSExample/LocalDB/FoodApp.sqlite"
         var db: OpaquePointer? = nil
         if sqlite3_open(fileURL_path, &db) != SQLITE_OK {
             print("error opening DB")
@@ -31,16 +32,17 @@ class DBHelper {
     func readFromDatabase() -> [Restaurant] {
         var queryStatement: OpaquePointer? = nil
         var restaurants: [Restaurant] = []
-        let queryStatementString = "SELECT * FROM restaurants;"
+        let queryStatementString = "SELECT * FROM menu;"
         
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             while sqlite3_step(queryStatement) == SQLITE_ROW{
                 // get values from row
                 let row_name = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
                 let row_imageString = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
-                let row_location = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
-                let row_type = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
-                restaurants.append(Restaurant(name: row_name, imageString: row_imageString, location: row_location, type: row_type))
+                let row_type = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
+                let row_price = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
+                let row_description = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
+                restaurants.append(Restaurant(name: row_name, imageString: row_imageString, type: row_type, price: row_price, description: row_description))
             }
         } else {
             let errmsg = String(cString: sqlite3_errmsg(db))

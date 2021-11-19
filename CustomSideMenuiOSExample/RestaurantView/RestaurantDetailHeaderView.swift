@@ -11,6 +11,7 @@ class RestaurantDetailHeaderView: UIView {
     
     @IBOutlet var headerImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var priceLabel: UILabel!
     @IBOutlet var heartButton: UIButton!
 
     /*

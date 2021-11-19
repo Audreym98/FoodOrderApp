@@ -21,6 +21,7 @@ class RestaurantDetailViewController: UIViewController {
         // Configure header view
         headerView.headerImageView.image = UIImage(named: restaurant.imageString)
         headerView.nameLabel.text = restaurant.name
+        headerView.priceLabel.text = restaurant.price
         // change color of heart icon for favorited restaurants
         let isFavorite = restaurant.isFavorite ?? false
         let heartImage = isFavorite ? "heart.fill" : "heart"

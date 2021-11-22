@@ -9,9 +9,6 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
-    @IBAction func likeRestaurant(sender: UIButton) {
-        // update if resturant isFavorite and change heart color
-    }
     
     var restaurants: [Restaurant] = []
     var defaults = UserDefaults.standard

@@ -16,6 +16,9 @@ class RestaurantDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
 
         navigationController?.navigationBar.tintColor = .white
         // Configure header view
@@ -40,4 +43,26 @@ class RestaurantDetailViewController: UIViewController {
     }
     */
 
+}
+
+extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // 2 rows of data
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String (describing: DetailTextCell.self), for: indexPath) as! DetailTextCell
+            cell.descriptionLabel.text = restaurant.description
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String (describing: DetailOrderCell.self), for: indexPath) as! DetailOrderCell
+            return cell
+        default:
+            fatalError("Failed to instantiate the table view cell for detail view controller")
+        }
+    }
 }

@@ -60,9 +60,22 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: String (describing: DetailOrderCell.self), for: indexPath) as! DetailOrderCell
+            cell.quantityLabel.text = "1"
+            cell.itemName = restaurant.name
+            cell.delegate = self
             return cell
         default:
             fatalError("Failed to instantiate the table view cell for detail view controller")
         }
     }
+}
+
+extension UIViewController : DetailTableViewCellDelegate {
+    func detailTableViewCell(_ detailTableViewCell: DetailOrderCell, orderTappedFor itemName: String, orderQuantityFor quantity: String) {
+    let alert = UIAlertController(title: "Added to cart!", message: " item: \(itemName), quantity: \(quantity)", preferredStyle: .alert)
+    // okay button to close alert
+    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alert.addAction(okAction)
+    self.present(alert, animated: true, completion: nil)
+  }
 }

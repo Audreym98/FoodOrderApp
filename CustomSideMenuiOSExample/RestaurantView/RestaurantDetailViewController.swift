@@ -57,12 +57,14 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: String (describing: DetailTextCell.self), for: indexPath) as! DetailTextCell
             cell.descriptionLabel.text = restaurant.description
+            cell.selectionStyle = .none
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: String (describing: DetailOrderCell.self), for: indexPath) as! DetailOrderCell
             cell.quantityLabel.text = "1"
             cell.itemName = restaurant.name
             cell.delegate = self
+            cell.selectionStyle = .none
             return cell
         default:
             fatalError("Failed to instantiate the table view cell for detail view controller")

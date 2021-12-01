@@ -347,7 +347,7 @@
                                     </connections>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailTextCell" id="Rxo-co-AoS" customClass="DetailTextCell" customModule="CustomSideMenuiOSExample" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailTextCell" id="Rxo-co-AoS" customClass="DetailTextCell" customModule="CustomSideMenuiOSExample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="469.5" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rxo-co-AoS" id="v8d-eu-8gh">
@@ -372,30 +372,30 @@
                                             <outlet property="descriptionLabel" destination="4ba-DG-1n8" id="5yS-By-tXE"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailOrderCell" rowHeight="112" id="oEZ-Jt-xWC" customClass="DetailOrderCell" customModule="CustomSideMenuiOSExample" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailOrderCell" rowHeight="112" id="oEZ-Jt-xWC" customClass="DetailOrderCell" customModule="CustomSideMenuiOSExample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="512.5" width="414" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oEZ-Jt-xWC" id="gss-LS-rM1">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="203" translatesAutoresizingMaskIntoConstraints="NO" id="EU8-mR-aHQ">
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="203" translatesAutoresizingMaskIntoConstraints="NO" id="EU8-mR-aHQ">
                                                     <rect key="frame" x="20" y="11" width="374" height="90"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YEO-Nx-2Ju">
-                                                            <rect key="frame" x="0.0" y="10.5" width="85.5" height="69"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YEO-Nx-2Ju">
+                                                            <rect key="frame" x="0.0" y="17.5" width="94" height="55"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-KA-Y7z">
-                                                                    <rect key="frame" x="6.5" y="0.0" width="72.5" height="32"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-KA-Y7z">
+                                                                    <rect key="frame" x="11" y="0.0" width="72.5" height="18"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ke-P4-btY">
-                                                                            <rect key="frame" x="0.0" y="7" width="62.5" height="18"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Quantity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ke-P4-btY">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfU-QJ-4wR" userLabel="Num">
-                                                                            <rect key="frame" x="65.5" y="7" width="7" height="18"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfU-QJ-4wR" userLabel="Num">
+                                                                            <rect key="frame" x="65.5" y="0.0" width="7" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -403,7 +403,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wHM-2g-H8T">
-                                                                    <rect key="frame" x="0.0" y="37" width="85.5" height="32"/>
+                                                                    <rect key="frame" x="0.0" y="23" width="94" height="32"/>
                                                                     <connections>
                                                                         <action selector="quantityChanged:" destination="oEZ-Jt-xWC" eventType="touchUpInside" id="MJq-xz-mkc"/>
                                                                     </connections>
@@ -411,7 +411,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-I5-Lpw">
-                                                            <rect key="frame" x="288.5" y="30" width="85.5" height="30"/>
+                                                            <rect key="frame" x="297" y="30" width="77" height="30"/>
                                                             <state key="normal" title="Add to cart"/>
                                                             <connections>
                                                                 <action selector="orderTapped:" destination="oEZ-Jt-xWC" eventType="touchUpInside" id="1ox-GI-FmA"/>

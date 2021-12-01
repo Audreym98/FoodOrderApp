@@ -24,6 +24,8 @@ class DetailOrderCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.orderButton.addTarget(self, action: #selector(orderTapped(_:)), for: .touchUpInside)
+        self.orderButton.setTitle("Add to cart", for: .normal)
+        self.orderButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

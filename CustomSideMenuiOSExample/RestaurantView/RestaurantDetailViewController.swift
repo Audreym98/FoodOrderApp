@@ -12,7 +12,7 @@ class RestaurantDetailViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var headerView: RestaurantDetailHeaderView!
     
-    var restaurant = Restaurant(name: "", imageString: "", type: "", price: "", description: "")
+    var restaurant: Restaurant = Restaurant(name: "", imageString: "", type: "", price: "", description: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: String (describing: DetailOrderCell.self), for: indexPath) as! DetailOrderCell
             cell.quantityLabel.text = "1"
-            cell.itemName = restaurant.name
+            cell.item = restaurant
             cell.delegate = self
             cell.selectionStyle = .none
             return cell

@@ -17,6 +17,7 @@
 		767A987627455CBB005D6044 /* DetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A987527455CBB005D6044 /* DetailTextCell.swift */; };
 		767A98782745FACF005D6044 /* DetailOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A98772745FACF005D6044 /* DetailOrderCell.swift */; };
 		767A987C2747148A005D6044 /* FoodApp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 767A987B2747148A005D6044 /* FoodApp.sqlite */; };
+		767A987E2757E14A005D6044 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A987D2757E149005D6044 /* ShoppingCart.swift */; };
 		C25EF4CE25D067D00086441F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4CD25D067D00086441F /* AppDelegate.swift */; };
 		C25EF4D025D067D00086441F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4CF25D067D00086441F /* SceneDelegate.swift */; };
 		C25EF4D225D067D00086441F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4D125D067D00086441F /* HomeViewController.swift */; };
@@ -43,6 +44,7 @@
 		767A987527455CBB005D6044 /* DetailTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextCell.swift; sourceTree = "<group>"; };
 		767A98772745FACF005D6044 /* DetailOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrderCell.swift; sourceTree = "<group>"; };
 		767A987B2747148A005D6044 /* FoodApp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FoodApp.sqlite; sourceTree = "<group>"; };
+		767A987D2757E149005D6044 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		C25EF4CA25D067D00086441F /* CustomSideMenuiOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSideMenuiOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25EF4CD25D067D00086441F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C25EF4CF25D067D00086441F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				C25EF4CF25D067D00086441F /* SceneDelegate.swift */,
 				C25EF4DB25D067D20086441F /* Info.plist */,
 				7614C5A327175972001CF887 /* Network.swift */,
+				767A987D2757E149005D6044 /* ShoppingCart.swift */,
 			);
 			path = CustomSideMenuiOSExample;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				C2DE6A2F25D2CEA7002B885A /* RestaurantViewController.swift in Sources */,
 				767A98782745FACF005D6044 /* DetailOrderCell.swift in Sources */,
 				7614C5A6271759A7001CF887 /* RestaurantTableViewCell.swift in Sources */,
+				767A987E2757E14A005D6044 /* ShoppingCart.swift in Sources */,
 				C25EF52C25D09AC30086441F /* MainViewController.swift in Sources */,
 				767A987627455CBB005D6044 /* DetailTextCell.swift in Sources */,
 				7667B5DA2720621500FAC336 /* RestaurantDetailViewController.swift in Sources */,

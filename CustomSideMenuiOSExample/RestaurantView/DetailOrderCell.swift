@@ -9,10 +9,10 @@ import UIKit
 
 class DetailOrderCell: UITableViewCell {
     
-    @IBOutlet weak var quantityLabel: UILabel!
-    @IBOutlet weak var quantityStepper: UIStepper!
-    @IBOutlet weak var orderButton: UIButton!
-    var itemName: String = ""
+    @IBOutlet var quantityLabel: UILabel!
+    @IBOutlet var quantityStepper: UIStepper!
+    @IBOutlet var orderButton: UIButton!
+    var item: Restaurant = Restaurant(name: "", imageString: "", type: "", price: "", description: "")
     weak var delegate : DetailTableViewCellDelegate?
     
     @IBAction func quantityChanged(_ sender: UIStepper) {
@@ -34,12 +34,13 @@ class DetailOrderCell: UITableViewCell {
     }
     
     @IBAction func orderTapped(_ sender: UIButton) {
-        // access value of quanity and we need the item name
-        // store this data somewhere
-        // display itemName and quantityLabel.text in a pop-up
+        // display order confirmation in a pop-up
         if delegate != nil {
-            self.delegate?.detailTableViewCell(self, orderTappedFor: self.itemName, orderQuantityFor: quantityLabel.text ?? "1")
+            self.delegate?.detailTableViewCell(self, orderTappedFor: self.item.name, orderQuantityFor: quantityLabel.text ?? "1")
         }
+        
+        // update cart
+        ShoppingCart.shared.addToCart(item: self.item, quantity: quantityLabel.text ?? "1")
     }
 }
 

@@ -18,6 +18,8 @@
 		767A98782745FACF005D6044 /* DetailOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A98772745FACF005D6044 /* DetailOrderCell.swift */; };
 		767A987C2747148A005D6044 /* FoodApp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 767A987B2747148A005D6044 /* FoodApp.sqlite */; };
 		767A987E2757E14A005D6044 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A987D2757E149005D6044 /* ShoppingCart.swift */; };
+		767A988127650AF5005D6044 /* CheckoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A988027650AF4005D6044 /* CheckoutTableViewController.swift */; };
+		767A988327654EAC005D6044 /* CheckoutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A988227654EAC005D6044 /* CheckoutItemCell.swift */; };
 		C25EF4CE25D067D00086441F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4CD25D067D00086441F /* AppDelegate.swift */; };
 		C25EF4D025D067D00086441F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4CF25D067D00086441F /* SceneDelegate.swift */; };
 		C25EF4D225D067D00086441F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4D125D067D00086441F /* HomeViewController.swift */; };
@@ -45,6 +47,8 @@
 		767A98772745FACF005D6044 /* DetailOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrderCell.swift; sourceTree = "<group>"; };
 		767A987B2747148A005D6044 /* FoodApp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FoodApp.sqlite; sourceTree = "<group>"; };
 		767A987D2757E149005D6044 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
+		767A988027650AF4005D6044 /* CheckoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTableViewController.swift; sourceTree = "<group>"; };
+		767A988227654EAC005D6044 /* CheckoutItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemCell.swift; sourceTree = "<group>"; };
 		C25EF4CA25D067D00086441F /* CustomSideMenuiOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSideMenuiOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25EF4CD25D067D00086441F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C25EF4CF25D067D00086441F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +76,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7614C5A02717590D001CF887 /* RestaurantView */ = {
+		7614C5A02717590D001CF887 /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
 				7614C5A12717593A001CF887 /* Restaurant.swift */,
@@ -83,7 +87,7 @@
 				767A987527455CBB005D6044 /* DetailTextCell.swift */,
 				767A98772745FACF005D6044 /* DetailOrderCell.swift */,
 			);
-			path = RestaurantView;
+			path = MenuView;
 			sourceTree = "<group>";
 		};
 		7667B5DB2720975A00FAC336 /* LocalDB */ = {
@@ -94,6 +98,15 @@
 				7667B5DC2720982500FAC336 /* DBHelper.swift */,
 			);
 			path = LocalDB;
+			sourceTree = "<group>";
+		};
+		767A987F276506F1005D6044 /* CheckoutView */ = {
+			isa = PBXGroup;
+			children = (
+				767A988027650AF4005D6044 /* CheckoutTableViewController.swift */,
+				767A988227654EAC005D6044 /* CheckoutItemCell.swift */,
+			);
+			path = CheckoutView;
 			sourceTree = "<group>";
 		};
 		C22DF82F25D1917200FEB621 /* Views */ = {
@@ -125,8 +138,9 @@
 		C25EF4CC25D067D00086441F /* CustomSideMenuiOSExample */ = {
 			isa = PBXGroup;
 			children = (
+				767A987F276506F1005D6044 /* CheckoutView */,
 				7667B5DB2720975A00FAC336 /* LocalDB */,
-				7614C5A02717590D001CF887 /* RestaurantView */,
+				7614C5A02717590D001CF887 /* MenuView */,
 				C22DF82F25D1917200FEB621 /* Views */,
 				C25EF4E225D06A2D0086441F /* SideMenu */,
 				C25EF52B25D09AC30086441F /* MainViewController.swift */,
@@ -246,9 +260,11 @@
 				C25EF4EA25D06B6A0086441F /* SideMenuCell.swift in Sources */,
 				C25EF4D225D067D00086441F /* HomeViewController.swift in Sources */,
 				C25EF4CE25D067D00086441F /* AppDelegate.swift in Sources */,
+				767A988327654EAC005D6044 /* CheckoutItemCell.swift in Sources */,
 				C25EF4D025D067D00086441F /* SceneDelegate.swift in Sources */,
 				7667B5E2273377CA00FAC336 /* RestaurantDetailHeaderView.swift in Sources */,
 				C2DE6A3225D2CEB2002B885A /* AboutViewController.swift in Sources */,
+				767A988127650AF5005D6044 /* CheckoutTableViewController.swift in Sources */,
 				7614C5A22717593A001CF887 /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

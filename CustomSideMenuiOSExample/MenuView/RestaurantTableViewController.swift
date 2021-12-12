@@ -51,12 +51,12 @@ class RestaurantTableViewController: UITableViewController {
         let dataSource = UITableViewDiffableDataSource<Section, Restaurant>(
             tableView: tableView,
             cellProvider: {
-                tableView, indexPath, restaurantName in
+                tableView, indexPath, restaurant in
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as! RestaurantTableViewCell
-                let restaurantName = self.restaurants[indexPath.row].name
+                let restaurantName = restaurant.name
                 cell.nameLabel.text = restaurantName
-                cell.priceLabel.text = self.restaurants[indexPath.row].price
-                cell.typeLabel.text = self.restaurants[indexPath.row].type
+                cell.priceLabel.text = restaurant.price
+                cell.typeLabel.text = restaurant.type
                 // what image to display
                 cell.thumbnailImageView.image = UIImage(named: self.restaurants[indexPath.row].imageString)
                 // determine if the restaurant in this cell has been liked

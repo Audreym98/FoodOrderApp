@@ -26,7 +26,7 @@ class SideMenuViewController: UIViewController {
     var menu: [SideMenuModel] = [
         SideMenuModel(title: "Home"),
         SideMenuModel(title: "Menu"),
-        SideMenuModel(title: "About"),
+        SideMenuModel(title: "Checkout"),
         SideMenuModel(title: "Like us on facebook")
     ]
 

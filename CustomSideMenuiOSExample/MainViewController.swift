@@ -149,10 +149,10 @@ extension MainViewController: SideMenuViewControllerDelegate {
             self.showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
         case 1:
             // Restaurants
-            self.showRestaurantsViewController(viewController: UINavigationController.self, storyboardId: "RestaurantsTableNavID")
+            self.showMenuViewController(viewController: UINavigationController.self, storyboardId: "MenuTableNavID")
         case 2:
             // About
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "AboutNavID")
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "CheckoutNavID")
         case 3:
             // Like us on facebook
             let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com")!)
@@ -189,13 +189,14 @@ extension MainViewController: SideMenuViewControllerDelegate {
         vc.didMove(toParent: self)
     }
     
-    func showRestaurantsViewController<T: UIViewController>(viewController: T.Type, storyboardId: String) -> () {
+    func showMenuViewController<T: UIViewController>(viewController: T.Type, storyboardId: String) -> () {
         // Remove the previous View
         for subview in view.subviews {
             if subview.tag == 99 {
                 subview.removeFromSuperview()
             }
         }
+        // pass in loaded menu data
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId) as! UINavigationController
         let restaurantView = vc.viewControllers.first as! RestaurantTableViewController

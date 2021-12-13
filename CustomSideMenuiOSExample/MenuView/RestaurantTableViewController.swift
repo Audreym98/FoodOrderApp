@@ -28,7 +28,7 @@ class RestaurantTableViewController: UITableViewController {
         navigationController?.navigationBar.tintColor = .white
         // assign custom dataSource to
         // table view's data source
-        tableView.dataSource = dataSource
+        tableView.dataSource = self.dataSource
         // create snapshot of data to display
         // snapshot is instance of NSDiffableDataSourceSnapshot
         var snapshot = NSDiffableDataSourceSnapshot<Section, Restaurant>()

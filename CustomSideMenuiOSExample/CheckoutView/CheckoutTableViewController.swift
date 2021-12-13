@@ -10,6 +10,9 @@ import UIKit
 class CheckoutTableViewController: UITableViewController {
     
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
+    // Summary view
+    @IBOutlet var subtotalLabel: UILabel!
+    @IBOutlet var checkoutButton: UIButton!
     
     lazy var dataSource = configureDataSource()
     
@@ -28,10 +31,12 @@ class CheckoutTableViewController: UITableViewController {
         // want to display a restaurant in a section
         var snapshot = NSDiffableDataSourceSnapshot<Section, Restaurant>()
         snapshot.appendSections([.all])
-        // want the shopping cart - how is this accessed?
         let menuItems: [Restaurant] = Array(ShoppingCart.shared.cart.keys)
         snapshot.appendItems(menuItems, toSection: .all)
         dataSource.apply(snapshot, animatingDifferences: false)
+        
+        // set up summary view
+        subtotalLabel.text = ShoppingCart.shared.getSubtotalFormatted()
     }
 
     // MARK: - Table view data source
@@ -45,10 +50,17 @@ class CheckoutTableViewController: UITableViewController {
                 cell.itemLabel.text = menuItem.name
                 cell.priceLabel.text = menuItem.price
                 cell.quantityLabel.text = String(ShoppingCart.shared.getQuantity(item: menuItem))
+                cell.quantityStepper.value = Double(ShoppingCart.shared.getQuantity(item: menuItem))
                 return cell
             }
         )
         return dataSource
+    }
+    
+    @IBAction func confirmCheckout(sender: UIButton) {
+        let alertController = UIAlertController(title: "Welcome to My First App", message: "Hello World", preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 
     /*
@@ -105,5 +117,4 @@ class CheckoutTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

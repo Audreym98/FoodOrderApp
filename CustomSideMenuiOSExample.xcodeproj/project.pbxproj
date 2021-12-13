@@ -20,6 +20,7 @@
 		767A987E2757E14A005D6044 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A987D2757E149005D6044 /* ShoppingCart.swift */; };
 		767A988127650AF5005D6044 /* CheckoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A988027650AF4005D6044 /* CheckoutTableViewController.swift */; };
 		767A988327654EAC005D6044 /* CheckoutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A988227654EAC005D6044 /* CheckoutItemCell.swift */; };
+		767A98892766FF8B005D6044 /* CheckoutSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767A98882766FF8B005D6044 /* CheckoutSummaryView.swift */; };
 		C25EF4CE25D067D00086441F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4CD25D067D00086441F /* AppDelegate.swift */; };
 		C25EF4D025D067D00086441F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4CF25D067D00086441F /* SceneDelegate.swift */; };
 		C25EF4D225D067D00086441F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EF4D125D067D00086441F /* HomeViewController.swift */; };
@@ -49,6 +50,7 @@
 		767A987D2757E149005D6044 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		767A988027650AF4005D6044 /* CheckoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTableViewController.swift; sourceTree = "<group>"; };
 		767A988227654EAC005D6044 /* CheckoutItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemCell.swift; sourceTree = "<group>"; };
+		767A98882766FF8B005D6044 /* CheckoutSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutSummaryView.swift; sourceTree = "<group>"; };
 		C25EF4CA25D067D00086441F /* CustomSideMenuiOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSideMenuiOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25EF4CD25D067D00086441F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C25EF4CF25D067D00086441F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				767A988027650AF4005D6044 /* CheckoutTableViewController.swift */,
 				767A988227654EAC005D6044 /* CheckoutItemCell.swift */,
+				767A98882766FF8B005D6044 /* CheckoutSummaryView.swift */,
 			);
 			path = CheckoutView;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				C25EF4D225D067D00086441F /* HomeViewController.swift in Sources */,
 				C25EF4CE25D067D00086441F /* AppDelegate.swift in Sources */,
 				767A988327654EAC005D6044 /* CheckoutItemCell.swift in Sources */,
+				767A98892766FF8B005D6044 /* CheckoutSummaryView.swift in Sources */,
 				C25EF4D025D067D00086441F /* SceneDelegate.swift in Sources */,
 				7667B5E2273377CA00FAC336 /* RestaurantDetailHeaderView.swift in Sources */,
 				C2DE6A3225D2CEB2002B885A /* AboutViewController.swift in Sources */,

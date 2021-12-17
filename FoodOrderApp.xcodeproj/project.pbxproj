@@ -50,7 +50,7 @@
 		767A988027650AF4005D6044 /* CheckoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTableViewController.swift; sourceTree = "<group>"; };
 		767A988227654EAC005D6044 /* CheckoutItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemCell.swift; sourceTree = "<group>"; };
 		767A98882766FF8B005D6044 /* CheckoutSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutSummaryView.swift; sourceTree = "<group>"; };
-		C25EF4CA25D067D00086441F /* CustomSideMenuiOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSideMenuiOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25EF4CA25D067D00086441F /* FoodOrderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodOrderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25EF4CD25D067D00086441F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C25EF4CF25D067D00086441F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C25EF4D125D067D00086441F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		C25EF4C125D067D00086441F = {
 			isa = PBXGroup;
 			children = (
-				C25EF4CC25D067D00086441F /* CustomSideMenuiOSExample */,
+				C25EF4CC25D067D00086441F /* FoodOrderApp */,
 				C25EF4CB25D067D00086441F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,12 +130,12 @@
 		C25EF4CB25D067D00086441F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C25EF4CA25D067D00086441F /* CustomSideMenuiOSExample.app */,
+				C25EF4CA25D067D00086441F /* FoodOrderApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C25EF4CC25D067D00086441F /* CustomSideMenuiOSExample */ = {
+		C25EF4CC25D067D00086441F /* FoodOrderApp */ = {
 			isa = PBXGroup;
 			children = (
 				767A987F276506F1005D6044 /* CheckoutView */,
@@ -153,7 +153,7 @@
 				7614C5A327175972001CF887 /* Network.swift */,
 				767A987D2757E149005D6044 /* ShoppingCart.swift */,
 			);
-			path = CustomSideMenuiOSExample;
+			path = FoodOrderApp;
 			sourceTree = "<group>";
 		};
 		C25EF4E225D06A2D0086441F /* SideMenu */ = {
@@ -177,9 +177,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C25EF4C925D067D00086441F /* CustomSideMenuiOSExample */ = {
+		C25EF4C925D067D00086441F /* FoodOrderApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C25EF4DE25D067D20086441F /* Build configuration list for PBXNativeTarget "CustomSideMenuiOSExample" */;
+			buildConfigurationList = C25EF4DE25D067D20086441F /* Build configuration list for PBXNativeTarget "FoodOrderApp" */;
 			buildPhases = (
 				C25EF4C625D067D00086441F /* Sources */,
 				C25EF4C725D067D00086441F /* Frameworks */,
@@ -189,9 +189,9 @@
 			);
 			dependencies = (
 			);
-			name = CustomSideMenuiOSExample;
+			name = FoodOrderApp;
 			productName = CustomSideMenuiOSExample;
-			productReference = C25EF4CA25D067D00086441F /* CustomSideMenuiOSExample.app */;
+			productReference = C25EF4CA25D067D00086441F /* FoodOrderApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -208,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C25EF4C525D067D00086441F /* Build configuration list for PBXProject "CustomSideMenuiOSExample" */;
+			buildConfigurationList = C25EF4C525D067D00086441F /* Build configuration list for PBXProject "FoodOrderApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -221,7 +221,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C25EF4C925D067D00086441F /* CustomSideMenuiOSExample */,
+				C25EF4C925D067D00086441F /* FoodOrderApp */,
 			);
 		};
 /* End PBXProject section */
@@ -448,7 +448,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C25EF4C525D067D00086441F /* Build configuration list for PBXProject "CustomSideMenuiOSExample" */ = {
+		C25EF4C525D067D00086441F /* Build configuration list for PBXProject "FoodOrderApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C25EF4DC25D067D20086441F /* Debug */,
@@ -457,7 +457,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C25EF4DE25D067D20086441F /* Build configuration list for PBXNativeTarget "CustomSideMenuiOSExample" */ = {
+		C25EF4DE25D067D20086441F /* Build configuration list for PBXNativeTarget "FoodOrderApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C25EF4DF25D067D20086441F /* Debug */,

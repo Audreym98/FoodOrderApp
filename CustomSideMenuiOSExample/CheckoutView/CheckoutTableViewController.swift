@@ -10,39 +10,51 @@ import UIKit
 class CheckoutTableViewController: UITableViewController {
     
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
-    // Summary view
+    // Summary view vars
     @IBOutlet var subtotalLabel: UILabel!
     @IBOutlet var checkoutButton: UIButton!
+    @IBOutlet var deliveryTimePicker: UIDatePicker!
     
     lazy var dataSource = configureDataSource()
     
-    // what does this mean?
+    var dateFormatter = DateFormatter()
+    
     enum Section {
         case all
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.sideMenuBtn.target = revealViewController()
         self.sideMenuBtn.action = #selector(self.revealViewController()?.revealSideMenu)
         navigationController?.navigationBar.tintColor = .white
         tableView.dataSource = dataSource
         // want to display a restaurant in a section
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Restaurant>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MenuItem>()
         snapshot.appendSections([.all])
-        let menuItems: [Restaurant] = Array(ShoppingCart.shared.cart.keys)
+        let menuItems: [MenuItem] = Array(ShoppingCart.shared.cart.keys)
         snapshot.appendItems(menuItems, toSection: .all)
         dataSource.apply(snapshot, animatingDifferences: false)
-        
         // set up summary view
         subtotalLabel.text = ShoppingCart.shared.getSubtotalFormatted()
+        let currentDate = Date()
+        deliveryTimePicker.minimumDate = currentDate
+        deliveryTimePicker.date = currentDate
+        dateFormatter.dateFormat = "MM/dd h:mm a"
+    }
+    
+    func clearTable() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MenuItem>()
+        snapshot.appendSections([.all])
+        let menuItems: [MenuItem] = []
+        snapshot.appendItems(menuItems, toSection: .all)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 
     // MARK: - Table view data source
-    func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant > {
+    func configureDataSource() -> UITableViewDiffableDataSource<Section, MenuItem > {
         let cellIdentifer = "itemCell"
-        let dataSource = UITableViewDiffableDataSource<Section, Restaurant>(
+        let dataSource = UITableViewDiffableDataSource<Section, MenuItem>(
             tableView: tableView,
             cellProvider: {
                 tableView, indexPath, menuItem in
@@ -51,6 +63,9 @@ class CheckoutTableViewController: UITableViewController {
                 cell.priceLabel.text = menuItem.price
                 cell.quantityLabel.text = String(ShoppingCart.shared.getQuantity(item: menuItem))
                 cell.quantityStepper.value = Double(ShoppingCart.shared.getQuantity(item: menuItem))
+                cell.item = menuItem
+                cell.delegate = self
+                cell.selectionStyle = .none
                 return cell
             }
         )
@@ -58,63 +73,19 @@ class CheckoutTableViewController: UITableViewController {
     }
     
     @IBAction func confirmCheckout(sender: UIButton) {
-        let alertController = UIAlertController(title: "Welcome to My First App", message: "Hello World", preferredStyle: UIAlertController.Style.alert)
+        let formattedDate = dateFormatter.string(from: deliveryTimePicker.date)
+        let alertController = UIAlertController(title: "Your order has been placed!", message: "subtotal: \(subtotalLabel.text ?? "$0.00"), delivery time: \(formattedDate)", preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         present(alertController, animated: true, completion: nil)
+        ShoppingCart.shared.clearCart()
+        subtotalLabel.text = ShoppingCart.shared.getSubtotalFormatted()
+        clearTable()
     }
+}
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+extension CheckoutTableViewController : CheckoutTableViewCellDelegate {
+    func updateSubtotal(_ checkoutTableViewCell: CheckoutItemCell) {
+        // update subtotal label
+        self.subtotalLabel.text = ShoppingCart.shared.getSubtotalFormatted()
+  }
 }

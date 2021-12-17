@@ -134,7 +134,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <datePicker contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Dp-Mu-8aw">
+                                <datePicker contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Dp-Mu-8aw">
                                     <rect key="frame" x="228" y="37" width="188" height="47"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="188" id="jg9-CE-pAB"/>
@@ -157,8 +157,9 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
+                                <constraint firstItem="vLe-dF-BuX" firstAttribute="leading" secondItem="TaW-cg-cfL" secondAttribute="leading" id="3gn-JI-YSj"/>
                                 <constraint firstItem="vLe-dF-BuX" firstAttribute="top" secondItem="TaW-cg-cfL" secondAttribute="bottom" constant="15" id="AsL-hH-pIT"/>
-                                <constraint firstItem="vLe-dF-BuX" firstAttribute="leading" secondItem="GjJ-RD-9a9" secondAttribute="leadingMargin" constant="10" id="BUF-N5-OJ5"/>
+                                <constraint firstItem="vLe-dF-BuX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GjJ-RD-9a9" secondAttribute="leadingMargin" id="BUF-N5-OJ5"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="I1D-oe-Tc2" secondAttribute="trailing" constant="10" id="GZh-E4-Ulv"/>
                                 <constraint firstItem="I1D-oe-Tc2" firstAttribute="top" secondItem="GjJ-RD-9a9" secondAttribute="topMargin" id="I6j-Ee-uVu"/>
                                 <constraint firstItem="I1D-oe-Tc2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mMc-6b-Gf7" secondAttribute="trailing" constant="8" symbolic="YES" id="K1A-WO-kX0"/>
@@ -166,7 +167,6 @@
                                 <constraint firstItem="6Dp-Mu-8aw" firstAttribute="trailing" secondItem="GjJ-RD-9a9" secondAttribute="trailingMargin" constant="10" id="Oan-Lx-O8i"/>
                                 <constraint firstItem="6Dp-Mu-8aw" firstAttribute="top" secondItem="I1D-oe-Tc2" secondAttribute="bottom" constant="8.5" id="Rof-6t-q7v"/>
                                 <constraint firstItem="TaW-cg-cfL" firstAttribute="leading" secondItem="GjJ-RD-9a9" secondAttribute="leadingMargin" constant="10" id="Zru-CJ-8jc"/>
-                                <constraint firstItem="6Dp-Mu-8aw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vLe-dF-BuX" secondAttribute="trailing" constant="8" symbolic="YES" id="aEv-KZ-omK"/>
                                 <constraint firstItem="mMc-6b-Gf7" firstAttribute="leading" secondItem="TaW-cg-cfL" secondAttribute="trailing" constant="3" id="jlY-89-vNn"/>
                                 <constraint firstItem="mMc-6b-Gf7" firstAttribute="top" secondItem="GjJ-RD-9a9" secondAttribute="topMargin" id="ooo-6Z-erI"/>
                             </constraints>
@@ -240,6 +240,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="checkoutButton" destination="vLe-dF-BuX" id="7sM-Jq-9B6"/>
+                        <outlet property="deliveryTimePicker" destination="6Dp-Mu-8aw" id="1ap-sl-9Od"/>
                         <outlet property="sideMenuBtn" destination="01G-cm-068" id="pyB-AO-PnD"/>
                         <outlet property="subtotalLabel" destination="mMc-6b-Gf7" id="mvT-P8-x1Q"/>
                     </connections>
@@ -254,16 +255,16 @@
             </objects>
             <point key="canvasLocation" x="-475.36231884057975" y="1674.7767857142856"/>
         </scene>
-        <!--Restaurant Table View Controller-->
+        <!--Menu Table View Controller-->
         <scene sceneID="ZwF-T1-Z0F">
             <objects>
-                <tableViewController storyboardIdentifier="menuView" id="UMa-Y2-Cw0" userLabel="Restaurant Table View Controller" customClass="RestaurantTableViewController" customModule="CustomSideMenuiOSExample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="menuView" id="UMa-Y2-Cw0" userLabel="Menu Table View Controller" customClass="MenuTableViewController" customModule="CustomSideMenuiOSExample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ur2-JA-ZfA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoritecell" id="VKh-BC-DTA" customClass="RestaurantTableViewCell" customModule="CustomSideMenuiOSExample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoritecell" id="VKh-BC-DTA" customClass="MenuTableViewCell" customModule="CustomSideMenuiOSExample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="308"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VKh-BC-DTA" id="8yO-3T-Csq">
@@ -355,7 +356,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="sideMenuBtn" destination="V0I-x6-XF1" id="CNA-UK-cT6"/>
-                        <segue destination="CSG-az-1e6" kind="show" identifier="showRestaurantDetail" id="zJp-dz-n4w"/>
+                        <segue destination="CSG-az-1e6" kind="show" identifier="showMenuItemDetail" id="zJp-dz-n4w"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w8D-gL-VLK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -365,7 +366,7 @@
         <!--Detail View Controller-->
         <scene sceneID="oOJ-n0-FIP">
             <objects>
-                <viewController id="CSG-az-1e6" userLabel="Detail View Controller" customClass="RestaurantDetailViewController" customModule="CustomSideMenuiOSExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CSG-az-1e6" userLabel="Detail View Controller" customClass="MenuDetailViewController" customModule="CustomSideMenuiOSExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BfJ-5P-euO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,7 +374,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cvq-gA-F1J">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="JV7-Hk-B45" userLabel="Header View" customClass="RestaurantDetailHeaderView" customModule="CustomSideMenuiOSExample" customModuleProvider="target">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="JV7-Hk-B45" userLabel="Header View" customClass="MenuDetailHeaderView" customModule="CustomSideMenuiOSExample" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="445"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -476,13 +477,13 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-KA-Y7z">
                                                                     <rect key="frame" x="11" y="0.0" width="72.5" height="18"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Quantity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ke-P4-btY">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ke-P4-btY">
                                                                             <rect key="frame" x="0.0" y="0.0" width="62.5" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfU-QJ-4wR" userLabel="Num">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfU-QJ-4wR" userLabel="Num">
                                                                             <rect key="frame" x="65.5" y="0.0" width="7" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>

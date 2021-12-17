@@ -1,5 +1,5 @@
 //
-//  RestaurantTableViewCell.swift
+//  MenuTableViewCell.swift
 //  CustomSideMenuiOSExample
 //
 //  Created by Audrey Shingleton on 10/13/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RestaurantTableViewCell: UITableViewCell {
+class MenuTableViewCell: UITableViewCell {
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!

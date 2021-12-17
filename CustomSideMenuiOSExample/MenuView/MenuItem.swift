@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Restaurant: Hashable, Decodable {
+struct MenuItem: Hashable, Decodable {
     
     var name: String
     var imageString: String
@@ -26,7 +26,7 @@ struct Restaurant: Hashable, Decodable {
     }
 }
 
-class RestaurantsModel {
+class MenuItemsModel {
     
     weak var delegate: Downloadable?
     let networkModel = Network()
@@ -34,8 +34,8 @@ class RestaurantsModel {
     func downloadRestaurants(url: String) {
            let request = networkModel.request(url: url)
            networkModel.response(request: request) { (data) in
-               let model = try! JSONDecoder().decode([Restaurant]?.self, from: data) as [Restaurant]?
-               self.delegate?.didReceiveData(data: model! as [Restaurant])
+               let model = try! JSONDecoder().decode([MenuItem]?.self, from: data) as [MenuItem]?
+               self.delegate?.didReceiveData(data: model! as [MenuItem])
            }
        }
 }

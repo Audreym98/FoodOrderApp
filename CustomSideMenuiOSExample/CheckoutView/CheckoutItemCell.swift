@@ -13,6 +13,8 @@ class CheckoutItemCell: UITableViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var quantityLabel: UILabel!
     @IBOutlet var quantityStepper: UIStepper!
+    var item: MenuItem = MenuItem(name: "", imageString: "", type: "", price: "", description: "")
+    weak var delegate : CheckoutTableViewCellDelegate? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,8 +29,24 @@ class CheckoutItemCell: UITableViewCell {
     
     @IBAction func quantityChanged(_ sender: UIStepper) {
         // assign value of stepper to quantity label
-        quantityLabel.text = Int(sender.value).description
-        // update amount in cart
+        let curQuantity = Int(quantityLabel.text!) ?? 0
+        if curQuantity != Int(sender.value) {
+            if Int(sender.value) > curQuantity {
+                // quantity increased
+                ShoppingCart.shared.addToCart(item: self.item, quantity: "1")
+            } else {
+                // quantity decreased
+                ShoppingCart.shared.removeOneFromCart(item: self.item)
+            }
+            quantityLabel.text = Int(sender.value).description
+            // update the subtotal label
+            if delegate != nil {
+                self.delegate?.updateSubtotal(self)
+            }
+        }
     }
+}
 
+protocol CheckoutTableViewCellDelegate: AnyObject {
+    func updateSubtotal(_  checkoutTableViewCell: CheckoutItemCell)
 }

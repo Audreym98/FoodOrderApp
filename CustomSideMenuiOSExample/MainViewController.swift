@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, Downloadable {
     func didReceiveData(data: Any) {
-        self.restaurants = (data as! [Restaurant])
+        self.menuItems = (data as! [MenuItem])
     }
     
     private var sideMenuViewController: SideMenuViewController!
@@ -24,7 +24,7 @@ class MainViewController: UIViewController, Downloadable {
 
     private var revealSideMenuOnTop: Bool = true
     
-    var restaurants: [Restaurant] = []  // load once
+    var menuItems: [MenuItem] = []  // load once
     
     // reading from local DB
     var db: DBHelper = DBHelper()
@@ -32,16 +32,16 @@ class MainViewController: UIViewController, Downloadable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // download from local server
-        print("load")
-        self.restaurants = db.readFromDatabase()
-        print(self.restaurants)
+        // download from local DB
+        self.menuItems = db.readFromDatabase()
+
         /*
-        // dowload data from local server
-        let model = RestaurantsModel()
+        // dowload data from local server MAMP
+        let model = MenuItemsModel()
         model.delegate = self
         model.downloadRestaurants(url: URLServices.restaurantsScript)
         */
+        
         self.view.backgroundColor = #colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 1)
 
         // Shadow Background View
@@ -148,7 +148,7 @@ extension MainViewController: SideMenuViewControllerDelegate {
             // Home
             self.showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
         case 1:
-            // Restaurants
+            // Menu
             self.showMenuViewController(viewController: UINavigationController.self, storyboardId: "MenuTableNavID")
         case 2:
             // About
@@ -199,8 +199,8 @@ extension MainViewController: SideMenuViewControllerDelegate {
         // pass in loaded menu data
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId) as! UINavigationController
-        let restaurantView = vc.viewControllers.first as! RestaurantTableViewController
-        restaurantView.restaurants = self.restaurants
+        let menuView = vc.viewControllers.first as! MenuTableViewController
+        menuView.menuItems = self.menuItems
         vc.view.tag = 99
         view.insertSubview(vc.view, at: self.revealSideMenuOnTop ? 0 : 1)
         addChild(vc)

@@ -12,7 +12,7 @@ class DetailOrderCell: UITableViewCell {
     @IBOutlet var quantityLabel: UILabel!
     @IBOutlet var quantityStepper: UIStepper!
     @IBOutlet var orderButton: UIButton!
-    var item: Restaurant = Restaurant(name: "", imageString: "", type: "", price: "", description: "")
+    var item: MenuItem = MenuItem(name: "", imageString: "", type: "", price: "", description: "")
     weak var delegate : DetailTableViewCellDelegate?
     
     @IBAction func quantityChanged(_ sender: UIStepper) {

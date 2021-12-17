@@ -1,5 +1,5 @@
 //
-//  RestaurantDetailViewController.swift
+//  MenuDetailViewController.swift
 //  CustomSideMenuiOSExample
 //
 //  Created by Audrey Shingleton on 10/20/21.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class RestaurantDetailViewController: UIViewController {
+class MenuDetailViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var headerView: RestaurantDetailHeaderView!
+    @IBOutlet var headerView: MenuDetailHeaderView!
     
-    var restaurant: Restaurant = Restaurant(name: "", imageString: "", type: "", price: "", description: "")
+    var menuItem: MenuItem = MenuItem(name: "", imageString: "", type: "", price: "", description: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +22,11 @@ class RestaurantDetailViewController: UIViewController {
 
         navigationController?.navigationBar.tintColor = .white
         // Configure header view
-        headerView.headerImageView.image = UIImage(named: restaurant.imageString)
-        headerView.nameLabel.text = restaurant.name
-        headerView.priceLabel.text = restaurant.price
-        // change color of heart icon for favorited restaurants
-        let isFavorite = restaurant.isFavorite ?? false
+        headerView.headerImageView.image = UIImage(named: menuItem.imageString)
+        headerView.nameLabel.text = menuItem.name
+        headerView.priceLabel.text = menuItem.price
+        // change color of heart icon for favorited menu item
+        let isFavorite = menuItem.isFavorite ?? false
         let heartImage = isFavorite ? "heart.fill" : "heart"
         headerView.heartButton.tintColor = isFavorite ? .systemYellow : .white
         headerView.heartButton.setImage(UIImage(systemName: heartImage), for: .normal)
@@ -45,7 +45,7 @@ class RestaurantDetailViewController: UIViewController {
 
 }
 
-extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDelegate {
+extension MenuDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 2 rows of data
@@ -56,13 +56,14 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: String (describing: DetailTextCell.self), for: indexPath) as! DetailTextCell
-            cell.descriptionLabel.text = restaurant.description
+            cell.descriptionLabel.text = menuItem.description
             cell.selectionStyle = .none
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: String (describing: DetailOrderCell.self), for: indexPath) as! DetailOrderCell
             cell.quantityLabel.text = "1"
-            cell.item = restaurant
+            cell.quantityStepper.value = 1
+            cell.item = menuItem
             cell.delegate = self
             cell.selectionStyle = .none
             return cell

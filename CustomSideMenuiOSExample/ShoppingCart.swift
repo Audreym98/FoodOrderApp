@@ -12,7 +12,7 @@ class ShoppingCart {
     static let shared = ShoppingCart()
     
     // item to quantity
-    var cart: [Restaurant: Int]
+    var cart: [MenuItem: Int]
     var subtotal: Float
     
     private init() {
@@ -21,11 +21,8 @@ class ShoppingCart {
         self.subtotal = 0
     }
     
-    func addToCart(item: Restaurant, quantity: String) {
-        print(item.name)
-        print(item.price)
-        print(quantity)
-        let quantity = Int(quantity) ?? 0
+    func addToCart(item: MenuItem, quantity: String) {
+        let quantity = Int(quantity) ?? 1
         let price = Float(item.price.dropFirst()) ?? 0
         // check if key exists
         if self.cart[item] != nil {
@@ -34,21 +31,30 @@ class ShoppingCart {
             self.cart[item] = quantity
         }
         self.subtotal += Float(quantity) * price
+        print(item.name)
         print(self.cart[item] ?? "none")
         print(self.subtotal)
     }
     
-    func removeFromCart(item: Restaurant) {
+    func removeOneFromCart(item: MenuItem) {
         self.cart[item]! -= 1
         let price = Float(item.price.dropFirst()) ?? 0
         self.subtotal -= price
+        
+        print(self.cart[item] ?? "none")
+        print(self.subtotal)
     }
     
-    func getQuantity(item: Restaurant) -> Int {
+    func getQuantity(item: MenuItem) -> Int {
         return cart[item] ?? 0
     }
     
     func getSubtotalFormatted() -> String {
         return "$" + String(format: "%.2f", self.subtotal)
+    }
+    
+    func clearCart() {
+        self.cart = [:]
+        self.subtotal = 0
     }
 }

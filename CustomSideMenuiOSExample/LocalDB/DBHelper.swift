@@ -29,9 +29,9 @@ class DBHelper {
         return db
     }
     
-    func readFromDatabase() -> [Restaurant] {
+    func readFromDatabase() -> [MenuItem] {
         var queryStatement: OpaquePointer? = nil
-        var restaurants: [Restaurant] = []
+        var menuItems: [MenuItem] = []
         let queryStatementString = "SELECT * FROM menu;"
         
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
@@ -42,13 +42,13 @@ class DBHelper {
                 let row_type = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
                 let row_price = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
                 let row_description = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
-                restaurants.append(Restaurant(name: row_name, imageString: row_imageString, type: row_type, price: row_price, description: row_description))
+                menuItems.append(MenuItem(name: row_name, imageString: row_imageString, type: row_type, price: row_price, description: row_description))
             }
         } else {
             let errmsg = String(cString: sqlite3_errmsg(db))
             print("Select failed: \(errmsg)")
         }
         sqlite3_finalize(queryStatement)
-        return restaurants
+        return menuItems
     }
 }

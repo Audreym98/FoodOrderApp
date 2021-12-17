@@ -1,5 +1,5 @@
 //
-//  RestaurantDetailHeaderView.swift
+//  MenuDetailHeaderView.swift
 //  CustomSideMenuiOSExample
 //
 //  Created by Audrey Shingleton on 11/3/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RestaurantDetailHeaderView: UIView {
+class MenuDetailHeaderView: UIView {
     
     @IBOutlet var headerImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!

@@ -14,12 +14,11 @@ class DBHelper {
         db = openDatabase()
     }
     
-    // let dbPath: String = "Restaurants.sqlite"
     let dbPath: String = "FoodApp.sqlite"
     var db:OpaquePointer?
     
     func openDatabase() -> OpaquePointer? {
-        let fileURL_path = "/Users/audrey/Desktop/UM/Fa-21/Swift/CustomSideMenuiOSExample-main/CustomSideMenuiOSExample/LocalDB/FoodApp.sqlite"
+        let fileURL_path = "/Users/audrey/Desktop/UM/Fa-21/Swift/FoodOrderApp-main/FoodOrderApp/LocalDB/FoodApp.sqlite"
         var db: OpaquePointer? = nil
         if sqlite3_open(fileURL_path, &db) != SQLITE_OK {
             print("error opening DB")

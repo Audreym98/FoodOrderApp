@@ -4,6 +4,7 @@
 //
 //  Created by John Codeos on 2/7/21.
 //
+// https://github.com/johncodeos-blog/CustomSideMenuiOSExample
 
 import UIKit
 
